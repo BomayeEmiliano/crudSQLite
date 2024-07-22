@@ -9,6 +9,9 @@ class registrar extends StatefulWidget {
 }
 
 class _registrarState extends State<registrar> {
+
+  final _key=GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +23,7 @@ class _registrarState extends State<registrar> {
 
       body: Center(
         child: Container(
+                padding: EdgeInsets.all(15),
                 width: 300,
                 height: 550,
                 decoration: BoxDecoration(
@@ -32,43 +36,82 @@ class _registrarState extends State<registrar> {
         
                   )]
                 ),
-            child: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: "Nombre:"
-                  ),
-                 ),
-                 TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: "Apellidos:"
-                  ),
-                 ),
-                 TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: "Correo Electronico:"
-                  ),
-                 ),
-                 TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: "Contraseña:"
-                  ),
-                 ),
-                 TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: "Confirmar Contraseña:"
-                  ),
-                 ),
-                OutlinedButton(
-                  onPressed: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => listamodulos(),));
-                }, child: Text("Registar"))
-            ],
+            child: Form(
+              key: _key,
+              child: Column(
+                children: [
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "No se adminten campos vacios";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Nombre:"
+                    ),
+                   ),
+                   TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "No se adminten campos vacios";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Apellidos:"
+                    ),
+                   ),
+                   TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "No se adminten campos vacios";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Correo Electronico:"
+                    ),
+                   ),
+                   TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "No se adminten campos vacios";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Contraseña:"
+                    ),
+                   ),
+                   TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "No se adminten campos vacios";
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Confirmar Contraseña:"
+                    ),
+                   ),
+                   SizedBox(
+                    height: 10,
+                   ),
+                  OutlinedButton(
+                    onPressed: () {
+                      if (_key.currentState!.validate()) {
+                        print("Guardado...");
+                      }
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => listamodulos(),));
+                  }, child: Text("Registar"))
+              ],
+              ),
             ),
         ),
       ),
