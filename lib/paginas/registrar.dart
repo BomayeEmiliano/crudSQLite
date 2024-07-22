@@ -10,7 +10,14 @@ class registrar extends StatefulWidget {
 
 class _registrarState extends State<registrar> {
 
+  //Esta es la llave para verificar los campos vacios
   final _key=GlobalKey<FormState>();
+  //Este es el controlador para obtener los valores de los campos
+  final nombreControlador=TextEditingController();
+  final apellidoControlador=TextEditingController();
+  final correoControlador=TextEditingController();
+  final contrasenaControlador=TextEditingController();
+  final confContrasenaControlador=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +48,7 @@ class _registrarState extends State<registrar> {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: nombreControlador,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "No se adminten campos vacios";
@@ -53,6 +61,7 @@ class _registrarState extends State<registrar> {
                     ),
                    ),
                    TextFormField(
+                    controller: apellidoControlador,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "No se adminten campos vacios";
@@ -65,6 +74,7 @@ class _registrarState extends State<registrar> {
                     ),
                    ),
                    TextFormField(
+                    controller: correoControlador,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "No se adminten campos vacios";
@@ -77,6 +87,7 @@ class _registrarState extends State<registrar> {
                     ),
                    ),
                    TextFormField(
+                    controller: contrasenaControlador,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "No se adminten campos vacios";
@@ -89,6 +100,7 @@ class _registrarState extends State<registrar> {
                     ),
                    ),
                    TextFormField(
+                    controller: confContrasenaControlador,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "No se adminten campos vacios";
@@ -106,7 +118,11 @@ class _registrarState extends State<registrar> {
                   OutlinedButton(
                     onPressed: () {
                       if (_key.currentState!.validate()) {
-                        print("Guardado...");
+                        print("Guardado... \n Nombre:"+nombreControlador.text);
+                        print("Apellido:"+apellidoControlador.text);
+                        print("Correo:"+correoControlador.text);
+                        print("Contraseña:"+contrasenaControlador.text);
+                        print("Confirmación Contraseña:"+confContrasenaControlador.text);
                       }
                       //Navigator.push(context, MaterialPageRoute(builder: (context) => listamodulos(),));
                   }, child: Text("Registar"))
