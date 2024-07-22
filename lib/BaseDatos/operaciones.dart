@@ -23,4 +23,33 @@ class Operaciones {
   database.insert("usuarios", nota.toMap());
  }
 
+//Listas los elementos de la tabla Usuarios
+ Future<List<Nota>> _notas() async{
+  Database database=await _abrirBD();
+  
+  //Listar los elementos del map
+  final List<Map<String,dynamic>> notasMap= await database.query("usuarios");
+
+  for (var n in notasMap) {
+    print("___"+ n['id']);
+    print("___"+ n['nombre']);
+    print("___"+ n['apellido']);
+    print("___"+ n['correo']);
+    print("___"+ n['contrasena']);
+    print("___"+ n['confContrasena']);
+  }
+
+  return List.generate(notasMap.length, (index)=> 
+    Nota(
+      id: notasMap[index]['id'], 
+      nombre: notasMap[index]['nombre'], 
+      apellido: notasMap[index]['apellido'], 
+      correo: notasMap[index]['correo'], 
+      contrasena: notasMap[index]['contrasena'], 
+      confContrasena: notasMap[index]['confContrasena']
+      ), 
+      );
+
+ }
+
 }
