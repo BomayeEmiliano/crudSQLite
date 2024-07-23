@@ -1,4 +1,6 @@
 
+import 'package:appcompleto/BaseDatos/nota.dart';
+import 'package:appcompleto/BaseDatos/operaciones.dart';
 import 'package:flutter/material.dart';
 
 class registrar extends StatefulWidget {
@@ -123,6 +125,8 @@ class _registrarState extends State<registrar> {
                         print("Correo:"+correoControlador.text);
                         print("Contraseña:"+contrasenaControlador.text);
                         print("Confirmación Contraseña:"+confContrasenaControlador.text);
+
+                        Operaciones.insertarAppbd(Nota(nombre: nombreControlador.text, apellido: apellidoControlador.text, correo: correoControlador.text, contrasena: contrasenaControlador.text, confContrasena: confContrasenaControlador.text));
                       }
                       //Navigator.push(context, MaterialPageRoute(builder: (context) => listamodulos(),));
                   }, child: Text("Registar"))

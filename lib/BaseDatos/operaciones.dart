@@ -6,7 +6,7 @@ class Operaciones {
 
 
   //Crear la Base de Datos y la Tabla
-  Future<Database> _abrirBD() async{
+  static Future<Database> _abrirBD() async{
 
     return openDatabase(join(await getDatabasesPath(),'appdb.db'),
             onCreate: (db, version) {
@@ -18,13 +18,13 @@ class Operaciones {
   }
 
 // Insertar Elemento a la Tabla 
- Future<void> _isertarAppbd(Nota nota) async{
+ static Future<void> insertarAppbd(Nota nota) async{
   Database database=await _abrirBD();
   database.insert("usuarios", nota.toMap());
  }
 
 //Listas los elementos de la tabla Usuarios
- Future<List<Nota>> _notas() async{
+ static Future<List<Nota>> notas() async{
   Database database=await _abrirBD();
   
   //Listar los elementos del map
