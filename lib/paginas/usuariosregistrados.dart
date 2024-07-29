@@ -1,5 +1,6 @@
 import 'package:appcompleto/BaseDatos/nota.dart';
 import 'package:appcompleto/BaseDatos/operaciones.dart';
+import 'package:appcompleto/paginas/actualizar.dart';
 import 'package:flutter/material.dart';
 
 class usuariosRegistrados extends StatefulWidget {
@@ -78,6 +79,12 @@ class _miListaState extends State<_miLista> {
       },
       child: ListTile(
         title: Text(notas[i].nombre),
+        trailing: MaterialButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Actualizar(nota: notas[i]),));
+          },
+          child: Icon(Icons.edit),
+          ),
       ),
     );
   }
