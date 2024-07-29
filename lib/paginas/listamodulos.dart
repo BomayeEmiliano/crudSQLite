@@ -4,6 +4,7 @@ import 'package:appcompleto/paginas/productos.dart';
 import 'package:appcompleto/paginas/productosyservicios.dart';
 import 'package:appcompleto/paginas/registrar.dart';
 import 'package:appcompleto/paginas/servicios.dart';
+import 'package:appcompleto/paginas/usuariosregistrados.dart';
 import 'package:flutter/material.dart';
 
 class listamodulos extends StatefulWidget {
@@ -94,7 +95,15 @@ class _listamodulosState extends State<listamodulos> {
                     Navigator.push(context, MaterialPageRoute(builder:(context) => elementosFormulario(),));
                   }, child: Text("Ir"))
               ],),
-              
+              Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                Image.network("https://cdn.prod.website-files.com/608710000c1ca9c8a85c798e/66732ec522fd050cc2e45728_heladeri%CC%81a%20tpv%20sistema-p-800.webp", width: 100, height: 100,),
+                Text("Modulo Mostrar Usuarios"),
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder:(context) => usuariosRegistrados(),));
+                  }, child: Text("Ir"))
+              ],),
             ],
           ),
 

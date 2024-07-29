@@ -10,8 +10,9 @@ class Operaciones {
 
     return openDatabase(join(await getDatabasesPath(),'appdb.db'),
             onCreate: (db, version) {
-              return db.execute("CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY, nombre TEXT, apellido TEXT, correo TEXT, contrasena TEXT, confcontrasena TEXT)");
-            }, version: 1,
+              return db.execute("CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY, nombre TEXT, apellido TEXT, correo TEXT, contrasena TEXT, confContrasena TEXT)");
+            }, 
+            version: 1,
     
     );
 
@@ -19,34 +20,34 @@ class Operaciones {
 
 // Insertar Elemento a la Tabla 
  static Future<void> insertarAppbd(Nota nota) async{
-  Database database=await _abrirBD();
-  database.insert("usuarios", nota.toMap());
+  Database db=await _abrirBD();
+  db.insert("usuarios", nota.toMap());
  }
 
 //Listas los elementos de la tabla Usuarios
  static Future<List<Nota>> notas() async{
-  Database database=await _abrirBD();
+  Database db=await _abrirBD();
   
   //Listar los elementos del map
-  final List<Map<String,dynamic>> notasMap= await database.query("usuarios");
+  final List<Map<String,dynamic>> notasMaps= await db.query("usuarios");
 
-  for (var n in notasMap) {
-    print("___"+ n['id']);
-    print("___"+ n['nombre']);
-    print("___"+ n['apellido']);
-    print("___"+ n['correo']);
-    print("___"+ n['contrasena']);
-    print("___"+ n['confContrasena']);
+  for (var n in notasMaps) {
+    //print("___"+ n['id']);
+    print("___"+ n['nombre'].toString());
+    print("___"+ n['apellido'].toString());
+    print("___"+ n['correo'].toString());
+    print("___"+ n['contrasena'].toString());
+    print("___"+ n['confContrasena'].toString());
   }
 
-  return List.generate(notasMap.length, (index)=> 
+  return List.generate(notasMaps.length, (index)=> 
     Nota(
-      id: notasMap[index]['id'], 
-      nombre: notasMap[index]['nombre'], 
-      apellido: notasMap[index]['apellido'], 
-      correo: notasMap[index]['correo'], 
-      contrasena: notasMap[index]['contrasena'], 
-      confContrasena: notasMap[index]['confContrasena']
+      id: notasMaps[index]['id'], 
+      nombre: notasMaps[index]['nombre'], 
+      apellido: notasMaps[index]['apellido'], 
+      correo: notasMaps[index]['correo'], 
+      contrasena: notasMaps[index]['contrasena'], 
+      confContrasena: notasMaps[index]['confContrasena']
       ), 
       );
 
