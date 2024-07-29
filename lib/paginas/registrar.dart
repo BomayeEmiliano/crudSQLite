@@ -34,7 +34,7 @@ class _registrarState extends State<registrar> {
         child: Container(
                 padding: EdgeInsets.all(15),
                 width: 300,
-                height: 550,
+                height: 650,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -49,6 +49,8 @@ class _registrarState extends State<registrar> {
               key: _key,
               child: Column(
                 children: [
+                  Text("Registrar Usuario"),
+                  SizedBox(height: 10,),
                   TextFormField(
                     controller: nombreControlador,
                     validator: (value) {

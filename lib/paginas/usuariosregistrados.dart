@@ -57,8 +57,28 @@ class _miListaState extends State<_miLista> {
   }
 
   _crearItem(int i) {
-    return ListTile(
-      title: Text(notas[i].nombre),
+    return Dismissible( //widget que permite manipular los datos de un ListTitle
+      key: Key(i.toString()),
+      direction: DismissDirection.startToEnd, //permite laeliminacion de un elemento de la lista desplazandolo a de izquierda a derecha
+      background: Container(
+        color: Colors.blue,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Row(
+            children: [
+              Icon(Icons.delete, color: Colors.white,),
+              Text("Eliminar", style: TextStyle(color: Colors.white),)
+            ],
+          ),
+        ),
+      ),
+      onDismissed: (direction) {
+        print("Eliminado");
+        Operaciones.eliminarAppbd(notas[i]);  //llamamos al metodo eliminar de la clase Operaciones
+      },
+      child: ListTile(
+        title: Text(notas[i].nombre),
+      ),
     );
   }
 }

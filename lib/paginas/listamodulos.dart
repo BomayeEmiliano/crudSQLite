@@ -28,7 +28,7 @@ class _listamodulosState extends State<listamodulos> {
       Center(
         child: Container(
               width: 320,
-              height: 550,
+              height: 650,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -98,7 +98,7 @@ class _listamodulosState extends State<listamodulos> {
               Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                 Image.network("https://cdn.prod.website-files.com/608710000c1ca9c8a85c798e/66732ec522fd050cc2e45728_heladeri%CC%81a%20tpv%20sistema-p-800.webp", width: 100, height: 100,),
-                Text("Modulo Mostrar Usuarios"),
+                Text("Modulo Usuarios"),
                 OutlinedButton(
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder:(context) => usuariosRegistrados(),));

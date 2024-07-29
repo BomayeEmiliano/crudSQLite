@@ -53,4 +53,10 @@ class Operaciones {
 
  }
 
+static Future<void> eliminarAppbd(Nota nota) async{
+  Database db=await _abrirBD();
+  db.delete("usuarios", where: "id = ?",whereArgs: [nota.id]);
+ }
+
+
 }
