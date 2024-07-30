@@ -1,16 +1,23 @@
-# appcompleto
+# appCrudSQLite
 
-A new Flutter project.
+AppMovil escrita en Flutter
 
-## Getting Started
+Actividad:
+Concluir lo realizado en clase, AGREGANDO la conexión con la Base de Datos SQLite.
 
-This project is a starting point for a Flutter application.
+Agregar la operaciones de:
+-Agregar Dependencias
+-Definir el Modelo
+-Crear/Abrir la Base de Datos
+-Crear la Tabla
+-Insertar Elemento 
+-Mostrar los Elementos
+-Actualizar Elemento
+-Eliminar Elemento
 
-A few resources to get you started if this is your first Flutter project:
+Anexo URL, con documentacion para conexion y operaciones con SQLite
+https://docs.flutter.dev/cookbook/persistence/sqlite
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+También anexo video por WhatsApp del funcionamiento que debe tener la finalizacion de la APP
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
