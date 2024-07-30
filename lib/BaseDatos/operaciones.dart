@@ -59,4 +59,9 @@ static Future<void> eliminarAppbd(Nota nota) async{
  }
 
 
+static Future<void> actualizarAppbd(Nota nota) async{
+  Database db=await _abrirBD();
+  db.update("usuarios",nota.toMap(),where: "id = ?",whereArgs: [nota.id]);
+ }
+
 }

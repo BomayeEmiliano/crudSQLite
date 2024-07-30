@@ -128,9 +128,14 @@ class Actualizar extends StatelessWidget {
                         nota.contrasena=_contrasenaControlador.text;
                         nota.confContrasena=_confContrasenaControlador.text;                      
                         
+                        Operaciones.actualizarAppbd(nota);
+
+                        print("Usuario Actualizado...");
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Usuario Actualizado'))); //Mostrar mensaje
+                      
                              }
                       //Navigator.push(context, MaterialPageRoute(builder: (context) => listamodulos(),));
-                  }, child: Text("Registar"))
+                  }, child: Text("Actualizar"))
               ],
               ),
             ),

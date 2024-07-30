@@ -134,6 +134,9 @@ class _registrarState extends State<registrar> {
                           correo: correoControlador.text, 
                           contrasena: contrasenaControlador.text, 
                           confContrasena: confContrasenaControlador.text));
+
+                          print("Usuario Guardado...");//Imprimir en terminal mensaje
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Usuario Guardado'))); //Mostrar mensaje
                       }
                       //Navigator.push(context, MaterialPageRoute(builder: (context) => listamodulos(),));
                   }, child: Text("Registar"))
